@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Vue Composition API',
   description: 'Just playing around',
+  base: '/vue_next_zh/',
   themeConfig: {
     nav: [
       { text: 'RFC  ', link: '/' },
