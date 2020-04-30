@@ -1,0 +1,20 @@
+{
+  "name": "vue_next_zh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "commit": "git add . && git cz"
+  },
+  "devDependencies": {
+    "git-cz": "^4.3.1",
+    "vuepress": "^1.4.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  }
+}
