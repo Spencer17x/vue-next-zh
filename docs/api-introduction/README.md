@@ -74,4 +74,50 @@ watchEffect(() => {
 })
 ```
 
+#### 计算状态和引用
+
+有时我们需要依赖于其他状态的状态-在Vue中，这是通过计算属性来处理的。要直接创建计算值，我们可以使用 ```computed``` API：
+
+```js
+import { reactive, computed } from 'vue'
+
+const state = reactive({
+  count: 0
+})
+
+const double = computed(() => state.count * 2)
+```
+
+```computed``` 这里返回多少呢 ？如果我们猜测如何在内部实现 ```computed```，我们可能会想到以下内容：
+
+```js
+// 简化伪代码
+function computed(getter) {
+  let value
+  watchEffect(() => {
+    value = getter()
+  })
+  return value
+}
+```
+
+但是我们知道这是行不通的：如果 ```value``` 是数字之类的原始类型，则返回值后，它与 ```computed``` 的内部更新逻辑的连接将丢失。这是因为JavaScript基本类型是通过值而不是通过引用传递的：
+
+![示例图](https://blog.penjee.com/wp-content/uploads/2015/02/pass-by-reference-vs-pass-by-value-animation.gif)
+
+将值分配给对象作为属性时，也会发生相同的问题。如果一个反应性值在分配为属性或从函数返回时不能保持其响应式，那么它将不是很有用。为了确保我们始终可以读取计算的最新值，我们需要将实际值包装在一个对象中，然后返回该对象：
+
+```js
+// 简化伪代码
+function computed(getter) {
+  const ref = {
+    value: null
+  }
+  watchEffect(() => {
+    ref.value = getter()
+  })
+  return ref
+}
+```
+
 
