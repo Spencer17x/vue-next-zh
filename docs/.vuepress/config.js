@@ -17,7 +17,7 @@ module.exports = {
 					['/basic-example/', '基本例子'],
 					{
 						title: '动机',
-						path: '/motivation/',
+						path: '/logic-reuse-code-organization/',
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
@@ -27,7 +27,7 @@ module.exports = {
 					},
 					{
 						title: '详细设计',
-						path: '/detailed-design/',
+						path: '/api-introduction/',
 						collapsable: false, sidebarDepth: 2,
 						children: [
 							['/api-introduction/', 'API介绍'],
@@ -39,7 +39,7 @@ module.exports = {
 					},
 					{
 						title: '缺点',
-						path: '/drawbacks/',
+						path: '/overhead-of-introducing-refs/',
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
