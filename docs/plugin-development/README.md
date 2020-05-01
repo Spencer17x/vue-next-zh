@@ -2,7 +2,7 @@
 
 如今，许多Vue插件都在 ```this``` 上注入了属性。例如，Vue Router注入 ```this.$route``` 和 ```this.$route```，而Vuex注入 ```this.$store```。由于每个插件都要求用户增加注入属性的Vue类型，这使得类型推断变得棘手。
 
-使用合成API时，没有 ```this```。相反，插件将利用内部 [```provide``` 和 ```inject```](https://vue-composition-api-rfc.netlify.app/api.html#dependency-injection) 并公开组合功能。以下是插件的假设代码：
+使用合成API时，没有 ```this```。相反，插件将利用内部 [```provide``` 和 ```inject```](/api/#dependency-injection) 并公开组合功能。以下是插件的假设代码：
 
 ```js
 const StoreSymbol = Symbol()

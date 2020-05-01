@@ -5,7 +5,7 @@ module.exports = {
 	themeConfig: {
 		nav: [
 			{ text: 'RFC  ', link: '/' },
-			{ text: 'API Reference', link: 'https://composition-api.vuejs.org/api.html' },
+			{ text: 'API 参考', link: '/api/' },
 		],
 		sidebar: [
 			{
